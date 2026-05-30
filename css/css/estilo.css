@@ -1,0 +1,1100 @@
+:root {
+    --bg-night: #0a0015;
+    --card-night: #1a0033;
+    --purple-vibrant: #7b1fa2;
+    --text-light: #e1bee7;
+    --kawaii-pink: #ff80ab; /* Color acento kawaii */
+    --white: #ffffff;
+}
+
+/* --- FONDO DE ESTRELLAS EN LAS ORILLAS (Sin Cambios) --- */
+body {
+    background-color: var(--bg-night);
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-light);
+}
+
+/* El main-wrapper centra el contenido. SE HA HECHO MÁS ANCHO */
+.main-wrapper {
+    max-width: 1400px; /* Ancho aumentado */
+    margin: 0 auto;
+    background-color: var(--bg-night); /* Tapa las estrellas en el centro */
+    box-shadow: 0 0 100px rgba(123, 31, 162, 0.4);
+}
+
+/* --- NAVEGACIÓN IZQUIERDA --- */
+nav {
+    background-color: #000;
+    border-bottom: 2px solid var(--purple-vibrant);
+    padding: 1rem 5%;
+    position: sticky; top: 0; z-index: 1000;
+}
+.menu-container { display: flex; align-items: center; justify-content: flex-start; }
+.logo-section { display: flex; align-items: center; gap: 10px; margin-right: 30px; }
+.logo-x { background: var(--purple-vibrant); color: white; padding: 5px 12px; border-radius: 5px; font-weight: 900; }
+.brand-name { font-weight: bold; font-size: 1.5rem; color: white; }
+
+.nav-links { display: flex; list-style: none; gap: 20px; width: 60%; } /* Ancho para ChatBot */
+.nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; transition: 0.3s; white-space: nowrap;}
+.nav-links a:hover { color: var(--kawaii-pink); text-shadow: 0 0 10px var(--kawaii-pink); }
+
+/* Botón Hamburguesa */
+.menu-checkbox { display: none; }
+.menu-button { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.menu-button span { width: 25px; height: 3px; background: white; }
+
+/* --- CARRUSEL CONTINUO (Imágenes Kawaii/Idol) --- */
+.section-title { text-align: center; padding: 40px 0 20px; font-size: 2rem; color: white; text-transform: uppercase; letter-spacing: 2px; }
+.infinite-carousel { background: #000; overflow: hidden; padding: 20px 0; border-top: 1px solid #333; }
+.carousel-track { display: flex; width: calc(300px * 11); animation: scrollInfinite 35s linear infinite; }
+.carousel-item { width: 280px; margin: 0 10px; flex-shrink: 0; position: relative; border-radius: 10px; overflow: hidden; }
+.carousel-item img { width: 100%; height: 350px; object-fit: cover; opacity: 0.9; } /* Más opacidad para ver bien Kawaii */
+.overlay-info { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); color: white; width: 100%; padding: 10px; font-size: 0.8rem; text-align: center; }
+
+@keyframes scrollInfinite { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 10)); } }
+
+/* --- NOSOTROS --- */
+.nosotros-container { display: flex; padding: 60px 5%; gap: 40px; align-items: center; background: #0f001f; }
+.video-side { flex: 1.3; }
+.video-side iframe { width: 100%; aspect-ratio: 16/9; border-radius: 15px; border: 3px solid var(--purple-vibrant); box-shadow: 0 0 20px rgba(123, 31, 162, 0.5); }
+.info-side { flex: 1; }
+.info-side h2 { color: white; font-size: 2.2rem; margin-bottom: 20px; }
+.info-side p { line-height: 1.7; font-size: 1rem; margin-bottom: 15px; color: var(--text-light); }
+
+.divider { border: 0; height: 3px; background: white; margin: 20px 5%; border-radius: 10px; }
+
+/* --- GRID 4 POR FILA --- */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px 5% 60px;
+}
+.card {
+    background: var(--card-night);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #331a4d;
+    transition: 0.3s;
+}
+.card:hover { transform: scale(1.03); box-shadow: 0 0 25px rgba(255, 128, 171, 0.5); border-color: var(--kawaii-pink); }
+.c-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 2px solid var(--purple-vibrant); }
+.c-body { padding: 15px; }
+.c-body h3 { font-size: 1.1rem; color: white; margin-bottom: 10px; }
+.c-body p { font-size: 0.85rem; line-height: 1.4; color: #b39ddb; margin-bottom: 15px; }
+.price { font-weight: bold; color: var(--white); font-size: 1.3rem; }
+.fav { position: absolute; top: 15px; right: 15px; color: var(--kawaii-pink); font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.fav:hover { color: #ff4081; transform: scale(1.2); }
+
+/* --- FOOTER CON MAPA --- */
+footer { background: #000; padding: 40px 5%; border-top: 2px solid var(--purple-vibrant); }
+.footer-container { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+.footer-info { flex: 1; text-align: left; color: var(--text-light); }
+.footer-info p { margin-bottom: 10px; font-size: 0.9rem; }
+
+.footer-map { flex: 1; max-width: 400px; height: 150px; background: var(--card-night); border-radius: 10px; border: 2px solid var(--purple-vibrant); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.map-placeholder { text-align: center; color: var(--text-light); }
+.map-placeholder p:first-child { font-weight: bold; color: white; font-size: 1.1rem; margin-bottom: 5px; }
+.map-placeholder p { font-size: 0.8rem; margin: 0; }
+
+/* --- RESPONSIVO --- */
+@media (max-width: 1024px) {
+    .grid-layout { grid-template-columns: repeat(2, 1fr); }
+    .footer-container { flex-direction: column; text-align: center; }
+    .footer-info { text-align: center; }
+    .footer-map { max-width: 100%; width: 100%; }
+}
+@media (max-width: 768px) {
+    .menu-button { display: flex; flex-direction: column; gap: 5px; cursor: pointer; margin-left: auto; }
+    .menu-button span { width: 25px; height: 3px; background: white; }
+    .nav-links {
+        display: none; flex-direction: column; position: absolute;
+        top: 60px; left: 0; width: 100%; background: #000; padding: 20px;
+    }
+    .menu-checkbox:checked ~ .nav-links { display: flex; }
+    .grid-layout { grid-template-columns: 1fr; }
+    .nosotros-container { flex-direction: column; }
+    .main-wrapper { margin: 0; width: 100%; }
+    .carousel-item { width: 250px; }
+    .carousel-item img { height: 250px; }
+}
+
+/* ==========================================
+   ESTILOS BASE DE LA PÁGINA PRINCIPAL (OSCURA)
+   ========================================== */
+body {
+    background-color: #0b001a;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/* Botón de Menú de Ventana */
+.menu-window-btn {
+    background: #4a00e0;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.menu-window-btn:hover {
+    background: #8e2de2;
+    box-shadow: 0 0 10px #8e2de2;
+}
+
+/* ==========================================
+   ESTILOS PARA LAS NUEVAS VENTANAS INDEPENDIENTES
+   ========================================== */
+.light-window {
+    background: #fdf8ff; /* Fondo claro Kawaii */
+    color: #333333;
+    padding: 20px;
+}
+
+.sub-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.window-header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 3px dashed #b39ddb;
+    margin-bottom: 30px;
+}
+
+.window-header h1 {
+    color: #4a00e0;
+    margin: 0;
+}
+
+/* Rejilla exacta de 4 columnas */
+.grid-4-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Forzar tarjetas claras en ventanas limpias */
+.light-window .card {
+    background: white;
+    border: 2px solid #e1bee7;
+    border-radius: 12px;
+    overflow: hidden;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.light-window .card h3 {
+    color: #6a1b9a;
+    margin: 10px 0 5px 0;
+}
+
+.light-window .price {
+    color: #e91e63;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Estilos de la ventana de Carrito de compras */
+.checkout-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 2px solid #b39ddb;
+    box-shadow: 0 10px 25px rgba(106, 27, 154, 0.1);
+}
+
+.cart-summary {
+    background: #f3e5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.payment-form h3 {
+    border-bottom: 2px solid #e1bee7;
+    padding-bottom: 5px;
+    color: #4a00e0;
+}
+
+.payment-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ce93d8;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pay-btn {
+    width: 100%;
+    background: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pay-btn:hover {
+    background: #4a00e0;
+}
+
+/* Ventana de Menú Dedicada */
+.menu-window-body {
+    background: #1a0033;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu-window-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 4px solid #8e2de2;
+    box-shadow: 0 0 30px rgba(142, 45, 226, 0.5);
+}
+
+.menu-window-content h2 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.menu-window-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-window-content li {
+    margin: 15px 0;
+}
+
+.menu-window-content a {
+    color: #4a00e0;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.menu-window-content a:hover {
+    color: #e91e63;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   SISTEMA DE CARRITO Y PAGOS SIN JAVASCRIPT
+   ========================================================================== */
+
+/* Esconder Checkboxes */
+.cart-tracker, .modal-checkbox {
+    display: none;
+}
+
+/* Botón "Añadir" en las Tarjetas */
+.buy-btn {
+    display: inline-block;
+    background: #7b1fa2; /* Morado neón */
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.buy-btn:hover {
+    background: #ff4081; /* Rosa Kawaii */
+    box-shadow: 0 0 10px #ff4081;
+}
+
+/* Enlace del carrito en el menú superior */
+.nav-cart-btn {
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.nav-cart-btn:hover {
+    color: #ff4081;
+    text-shadow: 0 0 8px #ff4081;
+}
+
+/* Fondos y Estructuras de las Ventanas Modales */
+.cart-overlay, .checkout-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 0, 21, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.cart-window, .checkout-success-window {
+    background: #1a0933; /* Fondo oscuro Midnight */
+    border: 2px solid #ff4081;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 480px;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 0 30px rgba(255, 64, 129, 0.3);
+}
+
+.cart-window h2, .checkout-success-window h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.cart-subtitle {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b39ddb;
+    margin-bottom: 20px;
+}
+
+/* Botón de Cierre (X) */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.modal-close-btn:hover { color: #ff4081; }
+
+/* Lista de Elementos en el Carrito */
+.cart-item {
+    display: none; /* Ocultos por defecto */
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #4a148c;
+    font-size: 0.95rem;
+}
+
+.cart-empty-message {
+    text-align: center;
+    color: #b39ddb;
+    padding: 20px 0;
+    font-style: italic;
+}
+
+.cart-hr {
+    border: none;
+    border-top: 1px solid #ff4081;
+    margin: 20px 0;
+}
+
+/* Botón para abrir Ventana de Éxito */
+.checkout-btn {
+    display: block;
+    background: #00e676; /* Verde de éxito */
+    color: #000;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00e676;
+    transition: 0.3s;
+}
+.checkout-btn:hover { background: #fff; box-shadow: 0 0 25px #fff; }
+
+/* ==========================================================================
+   LÓGICA CSS INTERACTIVA (La magia de los hermanos generalizados ~)
+   ========================================================================== */
+
+/* 1. Mostrar la Ventana del Carrito al hacer clic en el menú */
+#cart-modal-toggle:checked ~ .cart-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 2. Mostrar cada elemento si su checkbox respectivo fue activado */
+#add-p1:checked ~ .cart-overlay .item-1 { display: flex; }
+#add-p2:checked ~ .cart-overlay .item-2 { display: flex; }
+#add-p3:checked ~ .cart-overlay .item-3 { display: flex; }
+#add-p4:checked ~ .cart-overlay .item-4 { display: flex; }
+#add-p5:checked ~ .cart-overlay .item-5 { display: flex; }
+#add-p6:checked ~ .cart-overlay .item-6 { display: flex; }
+#add-p7:checked ~ .cart-overlay .item-7 { display: flex; }
+#add-p8:checked ~ .cart-overlay .item-8 { display: flex; }
+#add-p9:checked ~ .cart-overlay .item-9 { display: flex; }
+#add-p10:checked ~ .cart-overlay .item-10 { display: flex; }
+#add-p11:checked ~ .cart-overlay .item-11 { display: flex; }
+#add-p12:checked ~ .cart-overlay .item-12 { display: flex; }
+#add-p13:checked ~ .cart-overlay .item-13 { display: flex; }
+#add-p14:checked ~ .cart-overlay .item-14 { display: flex; }
+#add-p15:checked ~ .cart-overlay .item-15 { display: flex; }
+#add-p16:checked ~ .cart-overlay .item-16 { display: flex; }
+
+/* 3. Esconder el aviso de carrito vacío si se activa AL MENOS un producto */
+#add-p1:checked ~ .cart-overlay .cart-empty-message,
+#add-p2:checked ~ .cart-overlay .cart-empty-message,
+#add-p3:checked ~ .cart-overlay .cart-empty-message,
+#add-p4:checked ~ .cart-overlay .cart-empty-message,
+#add-p5:checked ~ .cart-overlay .cart-empty-message,
+#add-p6:checked ~ .cart-overlay .cart-empty-message,
+#add-p7:checked ~ .cart-overlay .cart-empty-message,
+#add-p8:checked ~ .cart-overlay .cart-empty-message,
+#add-p9:checked ~ .cart-overlay .cart-empty-message,
+#add-p10:checked ~ .cart-overlay .cart-empty-message,
+#add-p11:checked ~ .cart-overlay .cart-empty-message,
+#add-p12:checked ~ .cart-overlay .cart-empty-message,
+#add-p13:checked ~ .cart-overlay .cart-empty-message,
+#add-p14:checked ~ .cart-overlay .cart-empty-message,
+#add-p15:checked ~ .cart-overlay .cart-empty-message,
+#add-p16:checked ~ .cart-overlay .cart-empty-message {
+    display: none;
+}
+
+/* 4. Mostrar Ventana de Pago Exitoso */
+#checkout-toggle:checked ~ .checkout-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ENLACE INTERACTIVO ESPECÍFICO PARA LAS 16 REVISTAS (~ SELECCIÓN CON CSS)
+   ========================================================================== */
+
+#add-m1:checked ~ .cart-overlay .item-1 { display: flex; }
+#add-m2:checked ~ .cart-overlay .item-2 { display: flex; }
+#add-m3:checked ~ .cart-overlay .item-3 { display: flex; }
+#add-m4:checked ~ .cart-overlay .item-4 { display: flex; }
+#add-m5:checked ~ .cart-overlay .item-5 { display: flex; }
+#add-m6:checked ~ .cart-overlay .item-6 { display: flex; }
+#add-m7:checked ~ .cart-overlay .item-7 { display: flex; }
+#add-m8:checked ~ .cart-overlay .item-8 { display: flex; }
+#add-m9:checked ~ .cart-overlay .item-9 { display: flex; }
+#add-m10:checked ~ .cart-overlay .item-10 { display: flex; }
+#add-m11:checked ~ .cart-overlay .item-11 { display: flex; }
+#add-m12:checked ~ .cart-overlay .item-12 { display: flex; }
+#add-m13:checked ~ .cart-overlay .item-13 { display: flex; }
+#add-m14:checked ~ .cart-overlay .item-14 { display: flex; }
+#add-m15:checked ~ .cart-overlay .item-15 { display: flex; }
+#add-m16:checked ~ .cart-overlay .item-16 { display: flex; }
+
+/* Ocultar el aviso de carrito vacío si al menos una revista fue seleccionada */
+#add-m1:checked ~ .cart-overlay .cart-empty-message,
+#add-m2:checked ~ .cart-overlay .cart-empty-message,
+#add-m3:checked ~ .cart-overlay .cart-empty-message,
+#add-m4:checked ~ .cart-overlay .cart-empty-message,
+#add-m5:checked ~ .cart-overlay .cart-empty-message,
+#add-m6:checked ~ .cart-overlay .cart-empty-message,
+#add-m7:checked ~ .cart-overlay .cart-empty-message,
+#add-m8:checked ~ .cart-overlay .cart-empty-message,
+#add-m9:checked ~ .cart-overlay .cart-empty-message,
+#add-m10:checked ~ .cart-overlay .cart-empty-message,
+#add-m11:checked ~ .cart-overlay .cart-empty-message,
+#add-m12:checked ~ .cart-overlay .cart-empty-message,
+#add-m13:checked ~ .cart-overlay .cart-empty-message,
+#add-m14:checked ~ .cart-overlay .cart-empty-message,
+#add-m15:checked ~ .cart-overlay .cart-empty-message,
+#add-m16:checked ~ .cart-overlay .cart-empty-message {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   INTERFAZ PROFESIONAL DE PAGO - ESTILO AMAZON CHECKOUT
+   ========================================================================== */
+
+.amazon-bg {
+    background-color: #eaeded !important;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #111;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Minimalista */
+.amz-nav {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.amz-nav-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.checkout-badge {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: normal;
+}
+
+.secure-lock {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Layout en Dos Columnas */
+.amz-checkout-layout {
+    max-width: 1150px;
+    margin: 25px auto;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.amz-main-column {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.amz-sidebar-column {
+    flex: 1;
+    min-width: 290px;
+}
+
+/* Tarjetas de Pasos */
+.amz-step-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    display: flex;
+    gap: 20px;
+}
+
+.step-number {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #c45500;
+}
+
+.step-content {
+    width: 100%;
+}
+
+.step-content h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.15rem;
+    color: #111;
+}
+
+/* Campos de entrada Amazon */
+.amz-input, .amz-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+    background: #fff;
+    color: #111;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05) inset;
+}
+
+.amz-input:focus, .amz-select:focus {
+    outline: none;
+    border-color: #e77600;
+    box-shadow: 0 0 3px rgba(231, 118, 0, 0.5);
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Métodos de Pago y Tarjeta Realista */
+.payment-method-box {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    background: #fcfcfc;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.payment-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.card-icons {
+    display: flex;
+    gap: 4px;
+}
+
+.card-icons span {
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #fff;
+}
+.badge-visa { background: #1a1f71; }
+.badge-master { background: #ea001b; }
+.badge-amex { background: #007bc1; }
+
+.card-fields-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.field-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.expiry-inputs {
+    display: flex;
+    gap: 5px;
+}
+
+/* Desglose de Artículos del Paso 3 */
+.delivery-estimate-box {
+    background: #f0f8ff;
+    border: 1px solid #bce1ff;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.review-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.item-qty { font-weight: bold; color: #c45500; margin-right: 5px; }
+.item-desc { flex-grow: 2; color: #0066c0; }
+.item-price { font-weight: bold; }
+
+/* Barra Lateral Estilo Caja de Amazon */
+.amz-sticky-summary-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+/* Botón de Compra Corporativo Amarillo */
+.amz-primary-btn {
+    width: 100%;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid #a88734;
+    color: #111;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+}
+
+.amz-primary-btn:hover {
+    background: linear-gradient(to bottom, #f5d78e, #eeb933);
+    border-color: #846a29;
+}
+
+.amz-disclaimer {
+    font-size: 0.7rem;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+.amz-divider {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.total-line {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #b12704; /* Color rojo de precios Amazon */
+}
+
+.summary-footer-badge {
+    background: #f3f3f3;
+    padding: 8px;
+    font-size: 0.7rem;
+    color: #666;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* Clases Utilitarias */
+.font-mono { font-family: monospace; font-size: 1rem !important; }
+.text-center { text-align: center; }
+.opt-disabled { opacity: 0.5; cursor: not-allowed; }
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   INTERFAZ PROFESIONAL AMAZON CHECKOUT INTEGRADA (FLOTANTE)
+   ========================================================================== */
+
+/* Capa de fondo oscuro transparente */
+.cart-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: none;
+    overflow-y: auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* Abrir la ventana de Amazon al presionar el botón Carrito */
+#cart-modal-toggle:checked ~ .cart-overlay {
+    display: block;
+}
+
+.amz-checkout-window {
+    max-width: 1100px;
+    margin: 20px auto;
+    background: #eaeded;
+    color: #111;
+    border-radius: 8px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+/* Barra de Control de la Ventana */
+.amz-window-nav {
+    background: #fff;
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.amz-close-btn {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #111;
+    line-height: 1;
+}
+
+/* Rejilla de Dos Columnas */
+.amz-layout-grid {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.amz-steps-column { flex: 3; min-width: 320px; display: flex; flex-direction: column; gap: 15px; }
+.amz-sidebar-column { flex: 1; min-width: 280px; }
+
+/* Bloques de Pasos */
+.amz-step-block {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.amz-num { font-size: 1.4rem; font-weight: bold; color: #c45500; }
+.amz-block-content { width: 100%; }
+.amz-block-content h3 { margin: 0 0 15px 0; font-size: 1.2rem; }
+
+/* Entradas de Formulario */
+.amz-field, .amz-select-field {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+    background: #fff;
+    color: #111;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.amz-field-row { display: flex; gap: 10px; }
+
+/* Pasarela Bancaria Realista */
+.amz-payment-container { border: 1px solid #ddd; border-radius: 6px; padding: 15px; background: #fcfcfc; }
+.amz-radio-line { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.amz-card-badges { display: flex; gap: 4px; margin-left: auto; }
+.amz-card-badges span { font-size: 0.65rem; color: #fff; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+.b-visa { background: #1a1f71; }
+.b-master { background: #ea001b; }
+.b-amex { background: #007bc1; }
+.amz-card-subform { background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 6px; }
+.amz-lbl { display: block; font-size: 0.8rem; font-weight: bold; margin-bottom: 4px; }
+
+/* Revisión de ítems */
+.amz-delivery-status { background: #f0f8ff; border: 1px solid #bce1ff; padding: 10px; border-radius: 4px; font-size: 0.85rem; }
+.amz-items-receipt-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.amz-item-row { display: none; justify-content: space-between; font-size: 0.85rem; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+.amz-item-row span { color: #c45500; font-weight: bold; }
+.amz-item-row p { flex-grow: 2; margin: 0 0 0 10px; color: #0066c0; }
+.amz-fallback-empty { color: #555; font-size: 0.9rem; padding: 10px 0; }
+
+/* Caja Lateral de Totales */
+.amz-sticky-box { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; position: sticky; top: 20px; }
+.amz-btn-primary {
+    display: block; text-align: center; width: 100%;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    border: 1px solid #a88734; color: #111; padding: 10px 0;
+    border-radius: 7px; font-size: 0.95rem; cursor: pointer; font-weight: 500;
+}
+.amz-btn-primary:hover { background: linear-gradient(to bottom, #f5d78e, #eeb933); }
+.amz-legal { font-size: 0.7rem; color: #555; text-align: center; margin-top: 8px; }
+.amz-hr { border: 0; border-top: 1px solid #ddd; margin: 12px 0; }
+.amz-calc-line { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; }
+.amz-sticky-box .total-highlight { font-size: 1.15rem; font-weight: bold; color: #b12704; }
+.amz-tax-badge { background: #f3f3f3; padding: 6px; font-size: 0.65rem; text-align: center; color: #666; margin-top: 10px; }
+
+.mono { font-family: monospace; font-size: 1rem; }
+.text-center { text-align: center; }
+
+/* ==========================================================================
+   LÓGICA REFLECTIVA CON CSS PURO (VINCULACIÓN DIRECTA)
+   ========================================================================== */
+#add-p1:checked ~ .cart-overlay .pi-1 { display: flex; }
+#add-p2:checked ~ .cart-overlay .pi-2 { display: flex; }
+#add-p3:checked ~ .cart-overlay .pi-3 { display: flex; }
+#add-p4:checked ~ .cart-overlay .pi-4 { display: flex; }
+#add-p5:checked ~ .cart-overlay .pi-5 { display: flex; }
+#add-p6:checked ~ .cart-overlay .pi-6 { display: flex; }
+#add-p7:checked ~ .cart-overlay .pi-7 { display: flex; }
+#add-p8:checked ~ .cart-overlay .pi-8 { display: flex; }
+#add-p9:checked ~ .cart-overlay .pi-9 { display: flex; }
+#add-p10:checked ~ .cart-overlay .pi-10 { display: flex; }
+#add-p11:checked ~ .cart-overlay .pi-11 { display: flex; }
+#add-p12:checked ~ .cart-overlay .pi-12 { display: flex; }
+#add-p13:checked ~ .cart-overlay .pi-13 { display: flex; }
+#add-p14:checked ~ .cart-overlay .pi-14 { display: flex; }
+#add-p15:checked ~ .cart-overlay .pi-15 { display: flex; }
+#add-p16:checked ~ .cart-overlay .pi-16 { display: flex; }
+
+/* Ocultar mensaje de carrito vacío al seleccionar algo */
+#add-p1:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p2:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p3:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p4:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p5:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p6:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p7:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p8:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p9:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p10:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p11:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p12:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p13:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p14:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p15:checked ~ .cart-overlay .amz-fallback-empty,
+#add-p16:checked ~ .cart-overlay .amz-fallback-empty {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   LÓGICA INTERFAZ AMAZON CHECKOUT - EDICIÓN REVISTAS
+   ========================================================================== */
+
+/* Control de Apertura de Pantallas Flotantes */
+#cart-modal-toggle:checked ~ .cart-overlay {
+    display: block;
+}
+
+#success-toggle:checked ~ .success-overlay {
+    display: flex;
+}
+
+/* Espejos reflectivos de Revistas mediante CSS Puro */
+#add-m1:checked ~ .cart-overlay .mi-1 { display: flex; }
+#add-m2:checked ~ .cart-overlay .mi-2 { display: flex; }
+#add-m3:checked ~ .cart-overlay .mi-3 { display: flex; }
+#add-m4:checked ~ .cart-overlay .mi-4 { display: flex; }
+#add-m5:checked ~ .cart-overlay .mi-5 { display: flex; }
+#add-m6:checked ~ .cart-overlay .mi-6 { display: flex; }
+#add-m7:checked ~ .cart-overlay .mi-7 { display: flex; }
+#add-m8:checked ~ .cart-overlay .mi-8 { display: flex; }
+#add-m9:checked ~ .cart-overlay .mi-9 { display: flex; }
+#add-m10:checked ~ .cart-overlay .mi-10 { display: flex; }
+#add-m11:checked ~ .cart-overlay .mi-11 { display: flex; }
+#add-m12:checked ~ .cart-overlay .mi-12 { display: flex; }
+#add-m13:checked ~ .cart-overlay .mi-13 { display: flex; }
+#add-m14:checked ~ .cart-overlay .mi-14 { display: flex; }
+#add-m15:checked ~ .cart-overlay .mi-15 { display: flex; }
+#add-m16:checked ~ .cart-overlay .mi-16 { display: flex; }
+
+/* Ocultar mensaje por defecto cuando hay al menos una revista en el carro */
+#add-m1:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m2:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m3:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m4:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m5:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m6:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m7:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m8:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m9:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m10:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m11:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m12:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m13:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m14:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m15:checked ~ .cart-overlay .amz-fallback-empty,
+#add-m16:checked ~ .cart-overlay .amz-fallback-empty {
+    display: none;
+}
+
+/* Ventana de Éxito Flotante */
+.success-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
