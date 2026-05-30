@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Checkout Simulator - K-pop X</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/boton.css">
+    <link rel="stylesheet" href="css/facebook.css">
+    <link rel="stylesheet" href="css/instagram.css">
+</head>
+<body class="amazon-bg">
+
+    <!-- Navbar de Control Simplificada (Estilo Checkout de Amazon) -->
+    <nav class="amz-nav">
+        <div class="amz-nav-container">
+            <div class="logo-section">
+                <div class="logo-x">X</div>
+                <span class="brand-name">K-pop X <span class="checkout-badge">.com.mx Pago</span></span>
+            </div>
+            <div class="secure-lock">🔒 Pago seguro</div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal (Distribución Amazon: 2 Columnas) -->
+    <div class="amz-checkout-layout">
+        
+        <!-- COLUMNA IZQUIERDA: PASOS DE COMPRA -->
+        <div class="amz-main-column">
+            
+            <!-- PASO 1: DIRECCIÓN DE ENVÍO -->
+            <div class="amz-step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Dirección de envío</h3>
+                    <div class="step-inputs">
+                        <input type="text" placeholder="Nombre completo" value="Juan Pérez" class="amz-input" required>
+                        <input type="text" placeholder="Calle y número, colonia" value="Centro, Calle 3 Sur" class="amz-input" required>
+                        <div class="input-row">
+                            <input type="text" placeholder="Código Postal" value="75700" class="amz-input">
+                            <input type="text" placeholder="Ciudad" value="Tehuacán" class="amz-input" readonly>
+                            <input type="text" placeholder="Estado" value="Puebla" class="amz-input" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 2: MÉTODO DE PAGO REALISTA -->
+            <div class="amz-step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Selecciona un método de pago</h3>
+                    
+                    <div class="payment-method-box">
+                        <!-- Opción Tarjeta -->
+                        <div class="payment-option">
+                            <input type="radio" id="pay-card" name="payment-method" checked>
+                            <label for="pay-card" class="payment-label">
+                                <strong>Tarjeta de crédito o débito</strong>
+                                <div class="card-icons">
+                                    <span class="badge-visa">Visa</span>
+                                    <span class="badge-master">Mastercard</span>
+                                    <span class="badge-amex">Amex</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Campos dinámicos de la tarjeta -->
+                        <div class="card-fields-container">
+                            <div class="input-group">
+                                <label class="field-title">Banco Emisor</label>
+                                <select class="amz-select" required>
+                                    <option value="bbva">BBVA Bancomer</option>
+                                    <option value="banamex">Citibanamex</option>
+                                    <option value="santander">Santander Serfín</option>
+                                    <option value="kawaii">K-Pop Bank International</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label class="field-title">Número de tarjeta</label>
+                                <input type="text" placeholder="4152 0012 3456 7890" class="amz-input font-mono" maxlength="19" required>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group" style="width: 60%;">
+                                    <label class="field-title">Fecha de vencimiento</label>
+                                    <div class="expiry-inputs">
+                                        <select class="amz-select short">
+                                            <option>01</option><option>05</option><option selected>09</option><option>12</option>
+                                        </select>
+                                        <select class="amz-select short">
+                                            <option>26</option><option>27</option><option>28</option><option>30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input-group" style="width: 35%;">
+                                    <label class="field-title">CVV</label>
+                                    <input type="password" placeholder="123" class="amz-input font-mono text-center" maxlength="3" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="amz-divider">
+
+                        <!-- Opción Efectivo / OXXO alternativa simulada -->
+                        <div class="payment-option opt-disabled">
+                            <input type="radio" id="pay-cash" name="payment-method">
+                            <label for="pay-cash" class="payment-label">
+                                <span>Efectivo en tiendas de autoservicio (OXXO / 7-Eleven)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 3: REVISIÓN DE ARTÍCULOS (Une Productos y Revistas) -->
+            <div class="amz-step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Revisar artículos y envío</h3>
+                    <div class="delivery-estimate-box">
+                        🟢 Entrega garantizada: <strong style="color: #c45500;">Mañana mismo</strong> si completas tu orden ahora.
+                    </div>
+                    
+                    <!-- Lista de control de inventario de tu negocio -->
+                    <div class="review-items-list">
+                        <div class="review-item-row">
+                            <span class="item-qty">1x</span>
+                            <span class="item-desc">📦 Set Cosmético Coreano / Tinte Labial Idol</span>
+                            <span class="item-price">$15.00</span>
+                        </div>
+                        <div class="review-item-row">
+                            <span class="item-qty">1x</span>
+                            <span class="item-desc">📚 Revista Moda K-Pop (Elle Seoul / Vogue Special)</span>
+                            <span class="item-price">$52.00</span>
+                        </div>
+                        <div class="review-item-row">
+                            <span class="item-qty">1x</span>
+                            <span class="item-desc">📦 Paleta de Sombras Glitter Star Premium</span>
+                            <span class="item-price">$28.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COLUMNA DERECHA: CAJA RESUMEN FLOTANTE (COMPRAR ORIGINAL) -->
+        <div class="amz-sidebar-column">
+            <div class="amz-sticky-summary-card">
+                
+                <form action="#" method="POST">
+                    <!-- Botón de Acción Principal de Amazon -->
+                    <button type="submit" class="amz-primary-btn">Confirmar y pagar orden</button>
+                    <p class="amz-disclaimer">Al confirmar tu compra simulada, aceptas las políticas de entorno de pruebas de K-pop X.</p>
+                    
+                    <hr class="amz-divider">
+                    
+                    <h3>Resumen de la orden</h3>
+                    
+                    <div class="summary-line">
+                        <span>Productos (3):</span>
+                        <span>$95.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Envío y manejo:</span>
+                        <span style="color: #c45500;">$0.00</span>
+                    </div>
+                    
+                    <hr class="amz-divider">
+                    
+                    <div class="summary-line total-line">
+                        <span>Total a pagar:</span>
+                        <span>$95.00 MXN</span>
+                    </div>
+
+                    <div class="summary-footer-badge">
+                        <span>Tipo de cambio de prueba e IVA incluidos en el cálculo.</span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
